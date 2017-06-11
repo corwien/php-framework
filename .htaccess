@@ -1,0 +1,9 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+#如果文件存在就直接访问目录不进行RewriteRule
+RewriteCond %{REQUEST_FILENAME} !-f
+#如果目录存在就直接访问目录不进行RewriteRule
+RewriteCond %{REQUEST_FILENAME} !-d
+#将所有其他URL重写到 index.php/URL
+RewriteRule ^(.*)$ index.php?action=$1 [PT,L]
+</IfModule>

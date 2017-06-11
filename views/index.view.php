@@ -12,12 +12,12 @@
     </style>
 </head>
 <body>
-<header>
-    <ul>
-        <?php foreach ($names as $name) : ?>
-            <li>Hello, <?= $name ?></li>
-        <?php endforeach; ?>
-    </ul>
-</header>
+<?php require "partials/nav.view.php" ?>
+
+<form action="/tasks" method="GET">
+    <textarea name="description" id="description" cols="50" rows="3"  required></textarea>
+    <button type="submit">Submit</button>
+</form>
+
 </body>
 </html>
