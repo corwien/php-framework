@@ -2,7 +2,7 @@
 
 require 'database/Connection.php';
 require 'database/QueryBuilder.php';
-require "functions.php";
+require 'functions.php';
 
 // 获取配置
 $config = require 'config.php';
