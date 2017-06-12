@@ -6,9 +6,9 @@ class Task
 
     protected $completed = false;
 
-    public function __construct($desc)
+    public function __construct()
     {
-        $this->description = $desc;
+        // $this->description = $desc;
     }
 
     public  function isComplete()

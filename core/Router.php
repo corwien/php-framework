@@ -42,7 +42,8 @@ class Router
     {
         if(array_key_exists($uri, $this->routes[$requestType]))
         {
-            return $this->routes[$requestType][$uri];
+            return $this->callAction(
+                ...explode('@', $this->routes[$requestType][$uri]));
         }
 
        // 不存在，抛出异常，以后关于异常的可以自己定义一些，比如404异常，可以使用NotFoundException
@@ -58,6 +59,31 @@ class Router
 
         // 注意这里，静态方法中没有 $this 变量，不能 return $this;
         return $router;
+    }
+
+
+    /**
+     * 调用控制器方法
+     * @param $controller
+     * @param $action
+     *
+     * @return mixed
+     * @throws \Exception
+     */
+    private function callAction($controller, $action)
+    {
+        $controllerObj = new $controller;
+
+        // 判断方法是否存在
+        if(!method_exists($controllerObj, $action))
+        {
+            throw new Exception(
+                "{$controller} does not respond to the {$action} action."
+            );
+        }
+
+        return $controllerObj->$action();
+
     }
 
 

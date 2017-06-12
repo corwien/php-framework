@@ -6,12 +6,17 @@ namespace Composer\Autoload;
 
 class ComposerStaticInit83cb48187cf44a304a7a6be5e700ede3
 {
+    public static $files = array (
+        '0d19fc0eb29a7335217751bbf2db8c03' => __DIR__ . '/../..' . '/core/functions.php',
+    );
+
     public static $classMap = array (
         'App' => __DIR__ . '/../..' . '/core/App.php',
         'ComposerAutoloaderInit83cb48187cf44a304a7a6be5e700ede3' => __DIR__ . '/..' . '/composer/autoload_real.php',
         'Composer\\Autoload\\ClassLoader' => __DIR__ . '/..' . '/composer/ClassLoader.php',
         'Composer\\Autoload\\ComposerStaticInit83cb48187cf44a304a7a6be5e700ede3' => __DIR__ . '/..' . '/composer/autoload_static.php',
         'Connection' => __DIR__ . '/../..' . '/core/database/Connection.php',
+        'PagesController' => __DIR__ . '/../..' . '/controllers/PagesController.php',
         'QueryBuilder' => __DIR__ . '/../..' . '/core/database/QueryBuilder.php',
         'Request' => __DIR__ . '/../..' . '/core/Request.php',
         'Router' => __DIR__ . '/../..' . '/core/Router.php',
