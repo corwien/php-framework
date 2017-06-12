@@ -1,9 +1,5 @@
 <?php
 
-$app = [];
-
-// 获取配置
-$app['config'] = require ROOT . DS . 'config.php';
 require 'functions.php';
 
 /*
@@ -20,6 +16,19 @@ require 'Request.php';
 // 类自动加载方法，其他的文件不会自动引入，如function.php
 require __DIR__ . '/..' . '/vendor/autoload.php';
 
-$app['database'] =   new QueryBuilder(
-    Connection::make($app['config']['database'])
+// $app = [];
+
+// 获取配置
+// $app['config'] = require ROOT . DS . 'config.php';
+
+// 这里使用依赖注入优化上边的数组方法
+App::bind('config', require ROOT . DS . 'config.php');
+
+/*
+$app['database'] =  new QueryBuilder(
+    Connection::make(App::get('config')['database'])
 );
+*/
+App::bind('database', new QueryBuilder(
+    Connection::make(App::get('config')['database'])
+));
