@@ -2,14 +2,9 @@
 
 class Task
 {
-    protected $description;
+    public $description;
 
-    protected $completed = false;
-
-    public function __construct()
-    {
-        // $this->description = $desc;
-    }
+    public $completed = false;
 
     public  function isComplete()
     {

@@ -13,6 +13,18 @@
 </head>
 <body>
 <?php require "partials/nav.view.php" ?>
+<ul>
+<?php foreach ($tasks as $task) : ?>
+    <li>
+        <?php if ($task->isComplete()) : ?>
+            <strike> <?= $task->description; ?> </strike>
+        <?php else : ?>
+            <?= $task->description; ?>
+        <?php endif; ?>
+    </li>
+<?php endforeach; ?>
+</ul>
+
 
 <form action="/tasks" method="GET">
     <textarea name="description" id="description" cols="50" rows="3"  required></textarea>

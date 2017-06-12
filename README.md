@@ -12,10 +12,21 @@
  实现单一入口和mvc架构
  
  ### 3. third-version
- 使用composer进行类自动加载
+ 使用composer进行类自动加载，不用再使用 `require` 引入了
  
  ### 4. fourth-version
- 实现一个简单的依赖注入容器 DI Container 
+ 实现一个简单的依赖注入容器 DI Container，可以通过该容器对象进行数据的封装和获取。
+ 
+ ### 5. firth-version
+ 重构控制器，使用面向对象的方式去开发，编写控制器类，然后让路由指向到对应的控制器的方法，这样在我们以后的工作流中就会方便很多。
+ 
+ ```
+ $router->get('about', 'PagesController@about');
+ ```
+ 
+ ### 6. sixth-version
+ 全局函数 view()，我们可以使用该函数来代替 `PagesController` 中的 `require 'views/about.view.php';` 
+ 这句代码，我们改成 `return view('about');` 这样，可读性会好很多。同时在 `psr标准中` 也有这样的规定，在声明一个类的文件中是不能存在 require 代码的。
  
  
  
